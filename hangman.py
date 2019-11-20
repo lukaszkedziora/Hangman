@@ -2,7 +2,7 @@ import random
 import os
 
 
-arr_miasta = ['WARSOW', 'POZNAN', 'BERLIN', 'WLADYSLAWOWO']
+arr_miasta = ['TALLIN', 'PARIS', 'BERLIN', 'DUBLIN', 'LONDON', 'MOSCOW', 'WARSAW', 'LISBON', 'OSLO', 'ROME']
 arr_temp = []
 arr_dashes = []
 arr_all_letters = []
@@ -27,7 +27,7 @@ def print_all():
 
 def input_letter():
     print_all()
-    let = input('Give me a letter, any letter: ')
+    let = input('Give me a letter or word: ')
     repetition(let)
 
 
@@ -35,10 +35,10 @@ def repetition(let):
     c = arr_all_letters.count(let)
     d = wrong_words.count(let)
     if c == 0 and len(let) == 1:
-        arr_all_letters.append(let) 
+        arr_all_letters.append(let)
         compare(let)
     elif d == 0 and len(let) > 1:
-        wrong_words.append(let)   
+        wrong_words.append(let)
         compare(let)
     else:
         print('już było')
@@ -59,7 +59,7 @@ def compare(let):
             else:
                 for i in range(len(arr_temp)):
                     wrong_answers.append(1)
-                    wrong(wrong_answers)              
+                    wrong(wrong_answers)
         if len(a) == 1:
             for i in range(len(arr_dashes)):
                 if arr_temp[i] == a:
@@ -115,9 +115,9 @@ def random_city():
 def hangperson():
     i = len(arr_lives)
     if i == 0:
-        print('________\n|/ \n|\n| \n| \n| \n| \n|____')   
+        print('________\n|/ \n|\n| \n| \n| \n| \n|____')
     elif i == 1:
-        print('________\n|/   | \n|   (_) \n| \n| \n| \n| \n|____')   
+        print('________\n|/   | \n|   (_) \n| \n| \n| \n| \n|____')
     elif i == 2:
         print('________\n|/   | \n|   (_) \n|    | \n|    | \n| \n| \n|____')
     elif i == 3:
