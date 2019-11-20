@@ -86,7 +86,7 @@ def again():
     if b == 'Y':
         main()
     else:
-        print('bye, bye!')
+        print('Bye, Bye!')
         exit()
 
 
