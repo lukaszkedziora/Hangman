@@ -2,7 +2,7 @@ import random
 import os
 
 
-arr_miasta = ['TALLIN', 'PARIS', 'BERLIN', 'DUBLIN', 'LONDON', 'MOSCOW', 'WARSAW', 'LISBON', 'OSLO', 'ROME']
+arr_miasta = ['TALLIN', 'PARIS', 'BERLIN', 'DUBLIN', 'LONDON', 'MOSCOW', 'WARSAW', 'LISBON', 'OSLO', 'ROME', 'OSLO']
 arr_temp = []
 arr_dashes = []
 arr_all_letters = []
@@ -19,8 +19,7 @@ def main():
 def print_all():
     clear = lambda: os.system('clear')
     clear()
-    print('You have', 4-len(arr_lives), 'lives left')
-    print('Letters you have choosen: ', *arr_all_letters)
+    print('You have', 4-len(arr_lives), 'lives left' '\n' 'Letters you have choosen: ', *arr_all_letters)
     hangperson()
     print(*arr_dashes)
 
