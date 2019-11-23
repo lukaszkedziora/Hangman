@@ -1,8 +1,9 @@
 import random
 import os
+import time
 
 
-arr_miasta = ['TALLIN', 'PARIS', 'BERLIN', 'DUBLIN', 'LONDON', 'MOSCOW', 'WARSAW', 'LISBON', 'OSLO', 'ROME', 'OSLO']
+arr_miasta = ['TALLIN', 'PARIS', 'BERLIN', 'DUBLIN', 'LONDON', 'MOSCOW', 'WARSAW', 'LISBON', 'OSLO', 'ROME']
 arr_temp = []
 arr_dashes = []
 arr_all_letters = []
@@ -17,9 +18,8 @@ def main():
 
 
 def print_all():
-    clear = lambda: os.system('clear')
     clear()
-    print('You have', 4-len(arr_lives), 'lives left' '\n' 'Letters you have choosen: ', *arr_all_letters)
+    print('You have', 4-len(arr_lives), 'lives left' '\n' 'You have chosen so far: ', *arr_all_letters)
     hangperson()
     print(*arr_dashes)
 
@@ -28,6 +28,10 @@ def input_letter():
     print_all()
     let = input('Give me a letter or word: ')
     repetition(let)
+
+
+def clear():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 
 def repetition(let):
@@ -40,7 +44,9 @@ def repetition(let):
         wrong_words.append(let)
         compare(let)
     else:
-        print('już było')
+        print('____________________________' '\n \n' 'ERROR! You have already used ''\n''this letter, try again!')
+        print('____________________________')
+        time.sleep(.700)
         input_letter()
     return
 
@@ -50,7 +56,7 @@ def compare(let):
     a1 = let.isalpha()
     wrong_answers = []
     i = 0
-    if a1 is True:
+    if a1:
         if len(a) > 1:
             x = ''.join(arr_temp)
             if a == x:
@@ -70,30 +76,37 @@ def compare(let):
                     wrong(wrong_answers)
             input_letter()
     else:
-        print('Error, wrong sight')
+        print('____________________________' '\n \n' 'ERROR! Bad sign' '\n' '____________________________')
+        time.sleep(.500)
         input_letter()
 
 
 def again():
     print_all()
     if len(arr_lives) < 4:
-        print('You are the WINNER!')
+        print('____________________________' '\n' '\n' 'You are the WINNER!''\n' '____________________________''\n')
     else:
-        print(*arr_temp, '\nThis is the END!')
+        print(*arr_temp, '\n' '____________________________' '\n' '\n' 'This is the END!')
+        print('____________________________''\n')
     a = input('One more time? y/n: ')
     b = a.upper()
     if b == 'Y':
         main()
-    else:
-        print('Bye, Bye!')
+    elif b == 'N':
+        clear()
+        print('\n' '____________________________' '\n' '\n' 'Bye, Bye!' '\n' '____________________________''\n')
         exit()
+    else:
+        print('____________________________' '\n \n' 'ERROR! Bad sign'  '\n' '____________________________')
+        time.sleep(1)
+        again()
 
 
 def wrong(wrong_answers):
     if len(wrong_answers) == len(arr_temp):
         arr_lives.append('1')
         if len(arr_lives) == 4:
-            print('this is end')
+            print('____________________________' '\n \n' 'this is end' '\n' '____________________________')
             again()
         input_letter()
 
