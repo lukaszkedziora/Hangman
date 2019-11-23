@@ -22,16 +22,19 @@ def print_all():
     print('You have', 4-len(arr_lives), 'lives left' '\n' 'You have chosen so far: ', *arr_all_letters)
     hangperson()
     print(*arr_dashes)
+    return
 
 
 def input_letter():
     print_all()
     let = input('Give me a letter or word: ')
     repetition(let)
+    return
 
 
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
+    return
 
 
 def repetition(let):
@@ -44,9 +47,10 @@ def repetition(let):
         wrong_words.append(let)
         compare(let)
     else:
+        clear()
         print('____________________________' '\n \n' 'ERROR! You have already used ''\n''this letter, try again!')
         print('____________________________')
-        time.sleep(.700)
+        time.sleep(.900)
         input_letter()
     return
 
@@ -76,6 +80,7 @@ def compare(let):
                     wrong(wrong_answers)
             input_letter()
     else:
+        clear()
         print('____________________________' '\n \n' 'ERROR! Bad sign' '\n' '____________________________')
         time.sleep(.500)
         input_letter()
@@ -84,9 +89,13 @@ def compare(let):
 def again():
     print_all()
     if len(arr_lives) < 4:
+        clear()
+        print(*arr_temp)
         print('____________________________' '\n' '\n' 'You are the WINNER!''\n' '____________________________''\n')
     else:
-        print(*arr_temp, '\n' '____________________________' '\n' '\n' 'This is the END!')
+        clear()
+        hangperson()
+        print('\n', *arr_temp, '\n' '____________________________' '\n' '\n' 'You are dead, Skynet WON!')
         print('____________________________''\n')
     a = input('One more time? y/n: ')
     b = a.upper()
