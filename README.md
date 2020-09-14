@@ -1,7 +1,5 @@
 # Hangman
 
-![alt Hangman-photo](http://www.lukaszkedziora.com/wp-content/uploads/2020/09/hang.jpg)
-
 Easy to do and easy to play. Everyone who started learning programming had to create their own hangman. This console game is based on guessing names of cities. Have fun!
 
 ## The game plot 
